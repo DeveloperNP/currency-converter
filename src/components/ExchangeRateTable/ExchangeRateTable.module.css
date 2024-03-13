@@ -1,0 +1,23 @@
+/* Класс для таблицы с курсом валют */
+.table {
+  display: block;
+  border: 3px dotted blue;
+  margin: 20px;
+}
+
+/* Задание общих параметров таблицы */
+.table table {
+  color: azure;
+  border: 1px solid transparent;
+  border-collapse: collapse;
+}
+
+/* Задание заднего фона для нечетных строк таблицы */
+tr:nth-child(odd) {
+  background-color: rgba(0,0,0,.5);
+}
+
+/* Задание заднего фона для четных строк таблицы */
+tr:nth-child(even) {
+  background-color: rgba(0,0,0,.3);
+}
