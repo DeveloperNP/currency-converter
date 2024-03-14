@@ -2,14 +2,29 @@ import React from 'react';
 import './App.css';
 import CurrencyConverter from './components/CurrencyConverter/CurrencyConverter';
 import ExchangeRateTable from './components/ExchangeRateTable/ExchangeRateTable';
+import { connect } from 'react-redux';
+import { getExchangeData } from './redux/app-reducer'
 
-function App() {
-  return (
-    <div className="App">
-      <ExchangeRateTable />
-      <CurrencyConverter />
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    const {getExchangeData} = this.props;
+    getExchangeData();
+  }
+  
+  render() {
+    return (
+      <div className="App">
+        {this.props.currentDate}
+        <ExchangeRateTable />
+        <CurrencyConverter />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  currentDate: state.app.currentDate,
+  exchangeRates: state.app.exchangeRates
+})
+
+export default connect(mapStateToProps, { getExchangeData })(App);
