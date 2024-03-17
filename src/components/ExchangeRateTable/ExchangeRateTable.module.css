@@ -1,7 +1,6 @@
 /* Класс для таблицы с курсом валют */
 .table {
   display: block;
-  border: 3px dotted blue;
   margin: 20px;
 }
 

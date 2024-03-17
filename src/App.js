@@ -4,6 +4,7 @@ import CurrencyConverter from './components/CurrencyConverter/CurrencyConverter'
 import ExchangeRateTable from './components/ExchangeRateTable/ExchangeRateTable';
 import { connect } from 'react-redux';
 import { getExchangeData } from './redux/app-reducer'
+import Preloader from './components/common/Preloader/Preloader';
 
 class App extends React.Component {
   componentDidMount() {
@@ -12,10 +13,14 @@ class App extends React.Component {
   }
   
   render() {
+    if(!this.props.initialized) {
+      return <Preloader />
+    }
+    
     return (
       <div className="App">
         {this.props.currentDate}
-        <ExchangeRateTable />
+        <ExchangeRateTable exchangeRates={this.props.exchangeRates} />
         <CurrencyConverter />
       </div>
     );
@@ -24,7 +29,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   currentDate: state.app.currentDate,
-  exchangeRates: state.app.exchangeRates
+  exchangeRates: state.app.exchangeRates,
+  initialized: state.app.initialized
 })
 
 export default connect(mapStateToProps, { getExchangeData })(App);

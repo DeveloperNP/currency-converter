@@ -9,54 +9,53 @@ const createCell = (cellValue, size=4, color='azure') => {
   </td>
 }
 
-const ExchangeRateTable = () => {
+const CreateTableHeader = () => {
+  return <tr>
+    {createCell('Валюта', 5)}
+    {createCell('Курс', 5)}
+    {createCell('Предыдущее', 5)}
+    {createCell('Разница', 5)}
+    {createCell('Разница, %', 5)}
+  </tr>
+}
+
+const CreateRow = ({currency}) => {
+  // РАСЧЕТ ТЕКУЩЕГО И ПРЕДЫДУЩЕГО КУРСОВ
+  const currencyValue = Math.round((currency.Value / currency.Nominal) * 10000) / 10000;
+  const currencyPrevious = Math.round((currency.Previous / currency.Nominal) * 10000) / 10000;
+
+  // РАСЧЕТ РАЗНИЦЫ КУРСОВ
+  const currencyDiff = Math.round((currencyValue - currencyPrevious) * 10000) / 10000;
+  const currencyDiffPercent = Math.round((currencyDiff / currencyPrevious * 100) * 10000) / 10000;
+  
+  // АНАЛИЗ РАЗНИЦЫ КУРСОВ ЕВРО ДЛЯ ВЫБОРА ЦВЕТА
+  let currencyDiffColor = "";
+  currencyDiff > 0 ? currencyDiffColor = 'limegreen' : currencyDiffColor = 'red';
+  if (currencyDiff === 0) currencyDiffColor = 'black';
+
+  // ОТРИСОВКА СТРОЧКИ ТАБЛИЦЫ
+  return <tr>
+    {createCell(currency.Name)}
+    {createCell(currencyValue)}
+    {createCell(currencyPrevious)}
+    {createCell(currencyDiff, 4, currencyDiffColor)}
+    {createCell(currencyDiffPercent, 4, currencyDiffColor)}
+  </tr>
+}
+
+const ExchangeRateTable = ({exchangeRates}) => {
   return <div className={s.table}>
     <table align="center" cellpadding="10">
+      <CreateTableHeader />                       {/* ШАПКА ТАБЛИЦЫ */} 
+
+      <CreateRow currency={exchangeRates.USD} />  {/* СТРОКА С ДОЛЛАРАМИ */}
+      <CreateRow currency={exchangeRates.EUR} />  {/* СТРОКА С ЕВРО */}
+      <CreateRow currency={exchangeRates.GEL} />  {/* СТРОКА С ЛАРИ */}
+      <CreateRow currency={exchangeRates.TRY} />  {/* СТРОКА С ЛИРАМИ */}
       
-      {/* ШАПКА ТАБЛИЦЫ */} 
-      <tr>        
-        {createCell('Валюта', 5)}
-        {createCell('Курс', 5)}
-        {createCell('Предыдущее', 5)}
-        {createCell('Разница', 5)}
-        {createCell('Разница, %', 5)}
-      </tr>
-
-      {/* СТРОКА С ДОЛЛАРАМИ */}        
-      <tr>
-        {createCell('Доллар')}
-        {createCell('1')}
-        {createCell('2')}
-        {createCell('3')}
-        {createCell('4')}
-      </tr>
-
-      {/* СТРОКА С ЕВРО */}
-      <tr>        
-        {createCell('Евро')}
-        {createCell('1')}
-        {createCell('2')}
-        {createCell('3')}
-        {createCell('4')}
-      </tr>
-
-      {/* СТРОКА С ЛАРИ */}
-      <tr>        
-        {createCell('Лари')}
-        {createCell('1')}
-        {createCell('2')}
-        {createCell('3')}
-        {createCell('4')}
-      </tr>
-
-      {/* СТРОКА С ЛИРАМИ */}
-      <tr>        
-        {createCell('Лиры')}
-        {createCell('1')}
-        {createCell('2')}
-        {createCell('3')}
-        {createCell('4')}
-      </tr>      
+      {/* EXTRA */}
+      <CreateRow currency={exchangeRates.IDR} />
+      <CreateRow currency={exchangeRates.BGN} />
     </table>
   </div>
 }
