@@ -5,21 +5,22 @@ import ExchangeRateTable from './components/ExchangeRateTable/ExchangeRateTable'
 import { connect } from 'react-redux';
 import { getExchangeData } from './redux/app-reducer'
 import Preloader from './components/common/Preloader/Preloader';
+import ParsedDate from './components/ParsedDate/ParsedDate';
 
 class App extends React.Component {
   componentDidMount() {
     const {getExchangeData} = this.props;
     getExchangeData();
   }
-  
+
   render() {
     if(!this.props.initialized) {
       return <Preloader />
     }
-    
+
     return (
       <div className="App">
-        {this.props.currentDate}
+        <ParsedDate rawDate={this.props.currentDate} />
         <ExchangeRateTable exchangeRates={this.props.exchangeRates} />
         <CurrencyConverter />
       </div>
