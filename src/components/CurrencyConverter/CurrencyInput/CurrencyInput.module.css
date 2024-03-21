@@ -1,0 +1,73 @@
+/* Класс для всех полей в Конвертере Валют */
+.input {
+  display: inline-block;
+  width: 280px;
+  text-align: center;
+  padding: 5px;
+  font-size: larger;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Класс для заднего фона карточек с валютами */
+.input .background {
+  margin: 10px auto;
+  width: 270px;
+  height: 120px;
+  border: 2px solid none;
+  box-shadow: 7px 7px 7px rgba(0,0,0,.7);
+  border-radius: 20px;
+  background-size: cover;
+}
+
+/* Событие при наведении на задний фон карточек с валютами */
+.input .background:hover {
+  border: 2px solid none;
+  box-shadow: 7px 7px 7px black;
+}
+
+/* Класс для размытия заднего фона карточек с валютами*/
+.input .background .content {
+  background: rgba(255, 255, 255, .2); 
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+  height: 100%;
+	width: 100%; 
+}
+
+/* Фоны карточек */
+.input .background.r {
+  background-image: url(/src/assets/images/ruble.jpg);
+}
+
+.input .background.d {
+  background-image: url(/src/assets/images/dollar.jpg);
+}
+
+.input .background.e {
+  background-image: url(/src/assets/images/euro.jpg);
+}
+
+.input .background.la {
+  background-image: url(/src/assets/images/lari.jpg);
+}
+
+.input .background.li {
+  background-image: url(/src/assets/images/liri.jpg);
+}
+
+/* Все input внутри карточек с валютами */
+.input .background input {
+  font-size: large;
+  text-align: center;
+  width: 150px;
+  margin: 25px auto;
+}
+
+/* Заголовки карточек с валютами */
+.input .background .content span {
+  display: block;
+  border-top-left-radius: 8% 85%;
+  border-top-right-radius: 8% 85%;
+  color: black;
+  background-color: rgba(255,255,255,.5);
+}
