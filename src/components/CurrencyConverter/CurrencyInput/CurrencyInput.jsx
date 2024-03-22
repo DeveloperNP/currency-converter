@@ -32,8 +32,7 @@ const currExtraData = {
 const CurrencyInput = ({type, amount, onAmountChange}) => {
   
   const handleChange = (e) => {
-    alert(e.target.value);
-    // onAmountChange
+    onAmountChange(type, e.target.value);
   }
   
   return <>
@@ -41,7 +40,7 @@ const CurrencyInput = ({type, amount, onAmountChange}) => {
       <div className={`${s.background} ${currExtraData[type].className}`}>
         <div className={s.content}>
           <span>Введите сумму в {currExtraData[type].title}:</span>
-          <input value={amount} onChange={ handleChange } />
+          <input type='number' value={amount} onChange={ handleChange } />
           {currExtraData[type].symbol}
         </div>
       </div>
