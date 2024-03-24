@@ -52,10 +52,6 @@ const ExchangeRateTable = ({exchangeRates}) => {
       <CreateRow currency={exchangeRates.EUR} />  {/* СТРОКА С ЕВРО */}
       <CreateRow currency={exchangeRates.GEL} />  {/* СТРОКА С ЛАРИ */}
       <CreateRow currency={exchangeRates.TRY} />  {/* СТРОКА С ЛИРАМИ */}
-      
-      {/* EXTRA */}
-      <CreateRow currency={exchangeRates.IDR} />
-      <CreateRow currency={exchangeRates.BGN} />
     </table>
   </div>
 }
