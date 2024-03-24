@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/currency-converter/static/css/main.10e2d9ba.css",
+    "main.js": "/currency-converter/static/js/main.44d51e39.js",
+    "static/js/453.ed3810f9.chunk.js": "/currency-converter/static/js/453.ed3810f9.chunk.js",
+    "static/media/euro.jpg": "/currency-converter/static/media/euro.3435dc2eed7fea2ef2d3.jpg",
+    "static/media/ruble.jpg": "/currency-converter/static/media/ruble.a11cb558e052f2961677.jpg",
+    "static/media/liri.jpg": "/currency-converter/static/media/liri.52d4838f7636820b379e.jpg",
+    "static/media/lari.jpg": "/currency-converter/static/media/lari.194af97c91d4c6c2ee9f.jpg",
+    "static/media/dollar.jpg": "/currency-converter/static/media/dollar.b5c2a8c1c93ffa1eed10.jpg",
+    "static/media/preloader.svg": "/currency-converter/static/media/preloader.c32f6d13fe237a97834b1c44cf66fea5.svg",
+    "index.html": "/currency-converter/index.html",
+    "main.10e2d9ba.css.map": "/currency-converter/static/css/main.10e2d9ba.css.map",
+    "main.44d51e39.js.map": "/currency-converter/static/js/main.44d51e39.js.map",
+    "453.ed3810f9.chunk.js.map": "/currency-converter/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.10e2d9ba.css",
+    "static/js/main.44d51e39.js"
+  ]
+}
